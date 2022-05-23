@@ -1,0 +1,44 @@
+import math
+
+class Kwadratowa():
+
+    def __init__(self):
+        print("Utworzono obiekt klasy")
+
+    def inputData(self):
+        self.a = float(input('podaj a: '))
+        self.b = float(input('podaj b: '))
+        self.c = float(input('podaj c: '))
+
+    def obliczDelta(self):
+        self.delta = self.b ** 2 - 4 * (self.a * self.c)
+
+    def obliczZera(self):
+        if self.delta > 0:
+            self.zeroone = (self.b * (-1) - math.sqrt(self.delta)) / 2 * self.a
+            self.zerotwo = (self.b * (-1) + math.sqrt(self.delta)) / 2 * self.a
+        elif self.delta == 0:
+            self.zerooo = (self.b * (-1)) / (2 * self.a)
+
+
+    def showResultDelta(self):
+        print(f"Delta wynosi {self.delta}")
+
+    def showResultZero(self):
+        if self.delta > 0:
+            print(f"Miejsca zerowe funkcji kwadratowej o podanych przez ciebie wartościach to: {round(self.zeroone, 2)} oraz {round(self.zerotwo, 2)}", sep = "")
+        elif self.delta == 0:
+            print(f"Miejsce zerowe funkcji kwadratowej o podanych przez ciebie wartościach to: {round(self.zerooo, 2)}", sep = "")
+        else:
+            new_var = "Funkcja nie ma miejsc zerowych"
+            print(new_var)
+
+def main():
+    wynik = Kwadratowa()
+    wynik.inputData()
+    wynik.obliczDelta()
+    wynik.obliczZera()
+    wynik.showResultDelta()
+    wynik.showResultZero()
+
+main()
